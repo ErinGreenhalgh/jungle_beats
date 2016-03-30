@@ -81,11 +81,11 @@ class LinkedListTest < Minitest::Test
     list.prepend("dop")
     list.insert(1, "woo")
     assert_equal "dop", list.head.data
-    assert_equal "plop", list.head.next_node.data
-    assert_equal "woo", list.head.next_node.next_node.data
+    assert_equal "woo", list.head.next_node.data
+    assert_equal "plop", list.head.next_node.next_node.data
     assert_equal 4, list.count
-    assert_equal 
-    assert_equal "dop plop woo suu", list.to_string
+    assert_equal "suu", list.find_tail.data
+    assert_equal "dop woo plop suu", list.to_string
   end
 
   def test_the_methods_work_together
