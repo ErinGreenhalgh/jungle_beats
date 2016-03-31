@@ -74,7 +74,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "dop plop suu", list.to_string
   end
 
-  def test_it_can_add_a_node_anywhere_in_the_list
+  def test_it_can_add_a_node_after_the_head
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -86,6 +86,25 @@ class LinkedListTest < Minitest::Test
     assert_equal 4, list.count
     assert_equal "suu", list.find_tail.data
     assert_equal "dop woo plop suu", list.to_string
+  end
+
+  def test_it_can_add_a_node_anywhere_in_the_list
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(2,"woo")
+    assert_equal "dop", list.head.data
+    ssert_equal "woo", list.head.next_node.next.data
+    assert_equal 4, list.count
+    assert_equal "suu", list.find_tail.data
+    assert_equal "dop plop woo suu", list.to_string
+
+  end
+
+  def test_it_can_find_one_sound
+    skip 
+    list = LinkedList.new
   end
 
   def test_the_methods_work_together

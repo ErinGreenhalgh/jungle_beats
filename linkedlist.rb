@@ -50,5 +50,21 @@ class LinkedList
     @sounds.join(" ")
   end
 
+  def insert(index, data)
+    count = 0
+    node_after = @head
+    until count == index
+      node_before = node_after
+      node_after = node_after.next_node
+      count += 1
+    end
+
+    inserted_node = Node.new(data)
+    node_before.next_node = inserted_node
+    inserted_node.next_node = node_after
+    @sounds.insert(index, inserted_node.data)
+
+  end
+
 
 end
