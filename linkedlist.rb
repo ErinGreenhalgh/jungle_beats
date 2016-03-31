@@ -60,9 +60,9 @@ class LinkedList
   def insert(index, data)
     count = 0
     node_after = @head
-    if count == index
-      append(data)
-    else
+    # if count == index
+    #   append(data)
+    # else
       until count == index
         node_before = node_after
         node_after = node_after.next_node
@@ -72,7 +72,7 @@ class LinkedList
       inserted_node = Node.new(data)
       node_before.next_node = inserted_node
       inserted_node.next_node = node_after
-    end
+    # end
   end
 
   def find(index, number_of_sounds)

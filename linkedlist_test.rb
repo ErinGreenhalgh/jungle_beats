@@ -109,17 +109,17 @@ class LinkedListTest < Minitest::Test
     assert_equal "dop plop woo suu", list.to_string
   end
 
-  def test_it_can_insert_a_node_at_the_head
-    list = LinkedList.new
-    list.append("plop")
-    list.append("suu")
-    list.prepend("dop")
-    list.insert(0,"woo")
-    assert_equal "woo", list.head.data
-    assert_equal "dop", list.head.next_node.data
-    assert_equal 4, list.count
-    assert_equal "woo dop plop suu", list.to_string
-  end
+  # def test_it_can_insert_a_node_at_the_head
+  #   list = LinkedList.new
+  #   list.append("plop")
+  #   list.append("suu")
+  #   list.prepend("dop")
+  #   list.insert(0,"woo")
+  #   assert_equal "woo", list.head.data
+  #   assert_equal "dop", list.head.next_node.data
+  #   assert_equal 4, list.count
+  #   assert_equal "woo dop plop suu", list.to_string
+  # end
 
   def test_it_can_find_sounds_in_the_list
     list = LinkedList.new
