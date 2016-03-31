@@ -33,6 +33,15 @@ class LinkedListTest < Minitest::Test
       assert_equal nil, list.head.next_node
   end
 
+  # def test_it_can_move_forward_in_the_list
+  #   list = LinkedList.new
+  #   list.append("doop")
+  #   list.append("deep")
+  #   list.append("dop")
+  #   2.times {list.step_forward}
+  #   assert_equal "dop", list.step_forward.data
+  # end
+
   def test_it_can_find_a_tail
     list = LinkedList.new
     list.append("doop")
@@ -40,7 +49,6 @@ class LinkedListTest < Minitest::Test
     assert_equal "deep", list.find_tail.data
     #find-tail returns the obj
   end
-
 
   def test_it_can_append_more_data
     list = LinkedList.new
@@ -88,7 +96,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "dop woo plop suu", list.to_string
   end
 
-  def test_it_can_add_a_node_anywhere_in_the_list
+  def test_it_can_insert_a_node_into_the_middle_of_the_list
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -99,7 +107,18 @@ class LinkedListTest < Minitest::Test
     assert_equal 4, list.count
     assert_equal "suu", list.find_tail.data
     assert_equal "dop plop woo suu", list.to_string
+  end
 
+  def test_it_can_insert_a_node_at_the_head
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(0,"woo")
+    assert_equal "woo", list.head.data
+    assert_equal "dop", list.head.next_node.data
+    assert_equal 4, list.count
+    assert_equal "woo dop plop suu", list.to_string
   end
 
   def test_it_can_find_sounds_in_the_list
@@ -111,6 +130,15 @@ class LinkedListTest < Minitest::Test
     list.insert(3, "shu")
     assert_equal "shi", list.find(2,1)
     assert_equal "woo shi shu", list.find(1,3)
+  end
+
+  def test_it_cant_find_a_greater_number_of_sounds_than_exist
+    list = LinkedList.new
+    list.append("woo")
+    list.prepend("deep")
+    list.append("shi")
+    list.append("blop")
+    assert_equal "ERROR", list.find(2, 3)
   end
 
   def test_it_can_check_if_a_sound_is_in_the_list
@@ -135,5 +163,5 @@ class LinkedListTest < Minitest::Test
     assert_equal "shu", list.pop
     assert_equal "deep woo shi", list.to_string
   end
-  
+
 end

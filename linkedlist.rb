@@ -8,6 +8,10 @@ class LinkedList
     @head = nil
   end
 
+  # def step_forward
+  #   current_node = current_node.next_node
+  # end
+
   def find_tail
     current_node = @head
     until current_node.next_node.nil?
@@ -26,7 +30,6 @@ class LinkedList
   end
 
   def prepend(data)
-    # @sounds.unshift(data)
     prepended_node = Node.new(data)
     prepended_node.next_node = @head
     @head = prepended_node
@@ -57,30 +60,39 @@ class LinkedList
   def insert(index, data)
     count = 0
     node_after = @head
-    until count == index
-      node_before = node_after
-      node_after = node_after.next_node
-      count += 1
-    end
+    if count == index
+      append(data)
+    else
+      until count == index
+        node_before = node_after
+        node_after = node_after.next_node
+        count += 1
+      end
 
-    inserted_node = Node.new(data)
-    node_before.next_node = inserted_node
-    inserted_node.next_node = node_after
-    # @sounds.insert(index, inserted_node.data)
+      inserted_node = Node.new(data)
+      node_before.next_node = inserted_node
+      inserted_node.next_node = node_after
+    end
   end
 
   def find(index, number_of_sounds)
-    current_node = @head
-    found_sounds = []
-    index.times do
-      current_node = current_node.next_node #turn this into its own method
-    end
+    count
+    if index + number_of_sounds <= count
+      current_node = @head
+      found_sounds = []
+      index.times do
+        current_node = current_node.next_node
+      end
 
-    number_of_sounds.times do
-      found_sounds << current_node.data
-      current_node = current_node.next_node
+      number_of_sounds.times do
+        found_sounds << current_node.data
+        current_node = current_node.next_node
+      end
+      found_sounds.join(" ")
+
+    else
+      "ERROR"
     end
-    found_sounds.join(" ")
   end
 
   def includes?(data)
@@ -103,12 +115,4 @@ class LinkedList
       current_node.next_node = nil
       last_data
     end
-
-
-
-
-
-
-
-
 end
