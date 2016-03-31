@@ -95,17 +95,24 @@ class LinkedListTest < Minitest::Test
     list.prepend("dop")
     list.insert(2,"woo")
     assert_equal "dop", list.head.data
-    ssert_equal "woo", list.head.next_node.next.data
+    assert_equal "woo", list.head.next_node.next_node.data
     assert_equal 4, list.count
     assert_equal "suu", list.find_tail.data
     assert_equal "dop plop woo suu", list.to_string
 
   end
 
-  def test_it_can_find_one_sound
-    skip 
+  def test_it_can_find_sounds_in_the_list
     list = LinkedList.new
+    list.append("woo")
+    list.prepend("deep")
+    list.append("shi")
+    list.append("blop")
+    list.insert(3, "shu")
+    assert_equal "shi", list.find(2,1)
+    assert_equal "woo shi shu", list.find(1,3)
   end
+
 
   def test_the_methods_work_together
     skip

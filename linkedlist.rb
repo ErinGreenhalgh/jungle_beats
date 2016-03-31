@@ -63,6 +63,20 @@ class LinkedList
     node_before.next_node = inserted_node
     inserted_node.next_node = node_after
     @sounds.insert(index, inserted_node.data)
+  end
+
+  def find(index, number_of_sounds)
+    current_node = @head
+    found_sounds = []
+    index.times do
+      current_node = current_node.next_node #turn this into its own method
+    end
+
+    number_of_sounds.times do
+      found_sounds << current_node.data
+      current_node = current_node.next_node
+    end
+    found_sounds.join(" ")
 
   end
 
