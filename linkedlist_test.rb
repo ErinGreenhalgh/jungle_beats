@@ -133,9 +133,7 @@ class LinkedListTest < Minitest::Test
     list.append("blop")
     assert_equal "blop", list.pop
     assert_equal "shu", list.pop
+    assert_equal "deep woo shi", list.to_string
   end
-  def test_the_methods_work_together
-    skip
-    list = LinkedList.new
-  end
+  
 end

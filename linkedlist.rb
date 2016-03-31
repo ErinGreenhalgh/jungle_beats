@@ -6,7 +6,6 @@ class LinkedList
   attr_reader :head
   def initialize
     @head = nil
-    # @sounds = []
   end
 
   def find_tail
@@ -18,7 +17,6 @@ class LinkedList
   end
 
   def append(data)
-    # @sounds << data
     if @head.nil?
       @head = Node.new(data)
     else
