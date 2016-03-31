@@ -113,7 +113,27 @@ class LinkedListTest < Minitest::Test
     assert_equal "woo shi shu", list.find(1,3)
   end
 
+  def test_it_can_check_if_a_sound_is_in_the_list
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert list.includes?("deep")
+    refute list.includes?("dep")
+  end
 
+  def test_you_can_remove_a_node_from_the_end
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert_equal "blop", list.pop
+    assert_equal "shu", list.pop
+  end
   def test_the_methods_work_together
     skip
     list = LinkedList.new

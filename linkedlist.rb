@@ -77,8 +77,34 @@ class LinkedList
       current_node = current_node.next_node
     end
     found_sounds.join(" ")
-
   end
+
+  def includes?(data)
+    current_node = @head
+    until current_node.next_node.nil?
+      if current_node.data == data
+        return true
+      else
+        current_node = current_node.next_node
+      end
+    end
+  end
+
+    def pop
+      current_node = @head
+      until current_node.next_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      last_data = current_node.next_node.data
+      current_node.next_node = nil
+      last_data
+    end
+
+
+
+
+
+
 
 
 end
