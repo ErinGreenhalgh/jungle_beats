@@ -6,7 +6,7 @@ class LinkedList
   attr_reader :head
   def initialize
     @head = nil
-    @sounds = []
+    # @sounds = []
   end
 
   def find_tail
@@ -18,7 +18,7 @@ class LinkedList
   end
 
   def append(data)
-    @sounds << data
+    # @sounds << data
     if @head.nil?
       @head = Node.new(data)
     else
@@ -28,7 +28,7 @@ class LinkedList
   end
 
   def prepend(data)
-    @sounds.unshift(data)
+    # @sounds.unshift(data)
     prepended_node = Node.new(data)
     prepended_node.next_node = @head
     @head = prepended_node
@@ -47,7 +47,13 @@ class LinkedList
 
 
   def to_string
-    @sounds.join(" ")
+    current_node = @head
+    all_sounds =  ""
+    count.times do
+      all_sounds += current_node.data + " "
+      current_node = current_node.next_node
+    end
+    all_sounds.chop
   end
 
   def insert(index, data)
@@ -62,7 +68,7 @@ class LinkedList
     inserted_node = Node.new(data)
     node_before.next_node = inserted_node
     inserted_node.next_node = node_after
-    @sounds.insert(index, inserted_node.data)
+    # @sounds.insert(index, inserted_node.data)
   end
 
   def find(index, number_of_sounds)
