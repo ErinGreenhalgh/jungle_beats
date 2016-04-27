@@ -2,8 +2,8 @@ require 'pry'
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'node.rb'
-require_relative 'linkedlist.rb'
+require './lib/node.rb'
+require './lib/linkedlist.rb'
 
 class LinkedListTest < Minitest::Test
 

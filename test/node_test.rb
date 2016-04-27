@@ -1,7 +1,7 @@
 
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'node.rb'
+require './lib/node.rb'
 
 class NodeTest < Minitest::Test
 

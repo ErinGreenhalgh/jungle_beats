@@ -2,7 +2,7 @@ require 'pry'
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'junglebeat.rb'
+require './lib/junglebeat.rb'
 
 class JungleBeatTest < Minitest::Test
   def test_it_can_create_a_new_jungle_beat_object
